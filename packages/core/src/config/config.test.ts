@@ -807,13 +807,13 @@ describe('Server Config (config.ts)', () => {
       expect(config.getUseWriteTodos()).toBe(false);
     });
 
-    it('should disable useWriteTodos for preview models', () => {
+    it('should enable useWriteTodos for preview models (Gemini 3)', () => {
       const params: ConfigParameters = {
         ...baseParams,
         model: 'gemini-3-pro-preview',
       };
       const config = new Config(params);
-      expect(config.getUseWriteTodos()).toBe(false);
+      expect(config.getUseWriteTodos()).toBe(true);
     });
 
     it('should NOT disable useWriteTodos for non-preview models', () => {
